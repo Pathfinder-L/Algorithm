@@ -41,7 +41,7 @@ public class BinaryST<K extends Comparable<K>, V> extends ST<K, V>
 
 
     @Override
-    void put(K key, V val)
+    public void put(K key, V val)
     {
         int idx = rank(key);
         if (idx < N && keys[idx].compareTo(key) == 0)
@@ -62,7 +62,7 @@ public class BinaryST<K extends Comparable<K>, V> extends ST<K, V>
     }
 
     @Override
-    V get(K key)
+    public V get(K key)
     {
         if (isEmpty()) return null;
         int idx = rank(key);
@@ -71,7 +71,7 @@ public class BinaryST<K extends Comparable<K>, V> extends ST<K, V>
     }
 
     @Override
-    void delete(K key)
+    public void delete(K key)
     {
         if (isEmpty()) return;
         int idx = rank(key);
@@ -87,7 +87,7 @@ public class BinaryST<K extends Comparable<K>, V> extends ST<K, V>
     }
 
     @Override
-    boolean contains(K key)
+    public boolean contains(K key)
     {
         if (isEmpty()) return false;
         int idx = rank(key);
@@ -102,7 +102,7 @@ public class BinaryST<K extends Comparable<K>, V> extends ST<K, V>
     }
 
     @Override
-    int size()
+    public int size()
     {
         return N;
     }
@@ -135,6 +135,30 @@ public class BinaryST<K extends Comparable<K>, V> extends ST<K, V>
     K select(int k)
     {
         return keys[k];
+    }
+
+    @Override
+    public void deleteMin()
+    {
+
+    }
+
+    @Override
+    public void deleteMax()
+    {
+
+    }
+
+    @Override
+    public Iterable<K> keys(K lo, K hi)
+    {
+        return null;
+    }
+
+    @Override
+    public Iterable<K> keys()
+    {
+        return null;
     }
 
 

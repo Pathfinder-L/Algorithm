@@ -36,7 +36,7 @@ public class BST<K extends Comparable<K>, V> extends ST<K, V>
     }
 
     @Override
-    void put(K key, V val)
+    public void put(K key, V val)
     {
         root = put(root, key, val);
     }
@@ -64,7 +64,7 @@ public class BST<K extends Comparable<K>, V> extends ST<K, V>
 
 
     @Override
-    V get(K key)
+    public V get(K key)
     {
         return get(root, key);
     }
@@ -79,13 +79,13 @@ public class BST<K extends Comparable<K>, V> extends ST<K, V>
     }
 
     @Override
-    void delete(K key)
+    public void delete(K key)
     {
 
     }
 
     @Override
-    boolean contains(K key)
+    public boolean contains(K key)
     {
         return get(key) != null;
     }
@@ -97,7 +97,7 @@ public class BST<K extends Comparable<K>, V> extends ST<K, V>
     }
 
     @Override
-    int size()
+    public int size()
     {
         return size(root);
     }
@@ -159,6 +159,30 @@ public class BST<K extends Comparable<K>, V> extends ST<K, V>
     K select(int k)
     {
         return select(root, k).key;
+    }
+
+    @Override
+    public void deleteMin()
+    {
+
+    }
+
+    @Override
+    public void deleteMax()
+    {
+
+    }
+
+    @Override
+    public Iterable<K> keys(K lo, K hi)
+    {
+        return null;
+    }
+
+    @Override
+    public Iterable<K> keys()
+    {
+        return null;
     }
 
     private Node select(Node x, int k)

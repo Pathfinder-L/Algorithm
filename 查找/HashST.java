@@ -7,7 +7,7 @@ package 算法第四版.查找;
  *  @date   2023/2/23 17:37
  *
  * */
-public class HashST<K, V> extends ST<K, V>
+public class HashST<K extends Comparable<K>, V> extends ST<K, V>
 {
 
     private int N;
@@ -56,7 +56,7 @@ public class HashST<K, V> extends ST<K, V>
     }
 
     @Override
-    void put(K key, V val)
+    public void put(K key, V val)
     {
         if (N >= M / 2) resize(2 * M);
 
@@ -77,7 +77,7 @@ public class HashST<K, V> extends ST<K, V>
     }
 
     @Override
-    V get(K key)
+    public V get(K key)
     {
         for (int i = hash(key); keys[i] != null; i = (i + 1) % M)
         {
@@ -90,7 +90,7 @@ public class HashST<K, V> extends ST<K, V>
     }
 
     @Override
-    void delete(K key)
+    public void delete(K key)
     {
         if (!contains(key)) return; // 判断键是否存在
         int i = hash(key);
@@ -118,7 +118,7 @@ public class HashST<K, V> extends ST<K, V>
     }
 
     @Override
-    boolean contains(K key)
+    public boolean contains(K key)
     {
         for (int i = hash(key); keys[i] != null; i = (i + 1) % M)
         {
@@ -134,19 +134,19 @@ public class HashST<K, V> extends ST<K, V>
     }
 
     @Override
-    int size()
+    public int size()
     {
         return 0;
     }
 
     @Override
-    V min()
+    K min()
     {
         return null;
     }
 
     @Override
-    V max()
+    K max()
     {
         return null;
     }
@@ -175,14 +175,38 @@ public class HashST<K, V> extends ST<K, V>
         return null;
     }
 
+    @Override
+    public void deleteMin()
+    {
+
+    }
+
+    @Override
+    public void deleteMax()
+    {
+
+    }
+
+    @Override
+    public Iterable<K> keys(K lo, K hi)
+    {
+        return null;
+    }
+
+    @Override
+    public Iterable<K> keys()
+    {
+        return null;
+    }
+
 
     public static void main(String[] args)
     {
         HashST<Integer, String> map = new HashST<>();
 
         map.put(2, "罗瑞东");
-        map.put(2,"张三");
-     //   map.delete(2);
+        map.put(2, "张三");
+        //   map.delete(2);
         System.out.println(map.get(2));
 
     }
